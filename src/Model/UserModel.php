@@ -49,6 +49,58 @@ class UserModel extends AbstractModel
         }
     }
 
-    public function delete($id)
+    public function get(int $id): array
+    {
+        try {
+            $query = "SELECT * FROM Users WHERE id = $id";
+            $result = $this->conn->query($query, PDO::FETCH_ASSOC);
+            $user = $result->fetch();
+        } catch (Throwable $e) {
+            throw new StorageException("Failed to download user.", 400, $e);
+        }
+        if (!$user) {
+            throw new NotFoundException("User with id: $id does not exist.");
+        }
+        return $user;
+    }
+
+    public function update(int $id, array $data): void
+    {
+        try {
+            $nazwa = $this->conn->quote($data['nazwa']);
+            $password = $this->conn->quote($data['password']);
+            $imie = $this->conn->quote($data['imie']);
+            $nazwisko = $this->conn->quote($data['nazwisko']);
+            $data_urodzenia = $this->conn->quote($data['data_urodzenia']);
+
+            $query = "
+                UPDATE Users 
+                SET Nazwa = $nazwa, password = $password, imie = $imie, nazwisko = $nazwisko, data_urodzenia = $data_urodzenia 
+                WHERE id = $id
+                ";
+
+            $this->conn->exec($query);
+        } catch (Throwable $e) {
+            throw new StorageException("Nie udało się zaktualizować notatki", 400, $e);
+        }
+    }
+
+
+    /**
+     * @param int $id
+     * @return void
+     * @throws StorageException
+     */
+    public function delete(int $id): void
+    {
+        try {
+            $query = "DELETE FROM Users WHERE id = $id";
+            $this->conn->exec($query);
+        } catch (Throwable $e) {
+            throw new StorageException("Nie udało się usunąć notatki", 400, $e);
+        }
+    }
+
 
 }
+

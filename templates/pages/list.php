@@ -2,13 +2,13 @@
   <section>
     <div class="message">
       <?php
-      if (!empty($params['error'])) {
-        switch ($params['error']) {
-          case 'missingNoteId':
-            echo 'Niepoprawny identyfikator notatki';
+      if (!empty($params['before'])) {
+        switch ($params['before']) {
+          case 'missingUserId':
+            echo 'Wrong user id';
             break;
-          case 'noteNotFound':
-            echo 'Notatka nie została znaleziona';
+          case 'notFound':
+            echo 'Not Found';
             break;
         }
       }

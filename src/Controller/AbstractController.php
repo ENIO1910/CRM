@@ -58,7 +58,7 @@ abstract class AbstractController
             $this->view->render('error', ['message' => $e->getMessage()]);
         }
         catch (NotFoundException $e) {
-            $this->redirect('/Notatki', ['before' => 'notFound']);
+            $this->redirect('/', ['before' => 'notFound']);
         }
     }
 
