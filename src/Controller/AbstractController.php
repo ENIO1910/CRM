@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 
+use App\Model\GroupModel;
 use App\Model\UserModel;
 use App\Exception\ConfigurationException;
 use App\Exception\NotFoundException;
@@ -21,6 +22,7 @@ abstract class AbstractController
     private static array $configuration = [];
     protected const DEFAULT_ACTION = 'list';
     protected UserModel $userModel;
+    protected GroupModel $groupModel;
     protected Request $request;
     protected View $view;
 
@@ -36,6 +38,7 @@ abstract class AbstractController
             throw new ConfigurationException("Configuration error");
         }
         $this->userModel = new UserModel(self::$configuration['db']);
+        $this->groupModel = new GroupModel(self::$configuration['db']);
 
         $this->request = $request;
         $this->view = new View();

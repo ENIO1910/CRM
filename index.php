@@ -16,6 +16,7 @@ use App\Controller\UserController;
 use App\Request;
 use App\Exception\AppException;
 use App\Exception\ConfigurationException;
+use \App\Controller\GroupController;
 
 $request = new Request($_GET, $_POST, $_SERVER);
 
@@ -24,7 +25,7 @@ try {
   //$controller->run();
 
   AbstractController::initConfiguration($configuration);
-  (new UserController($request))->run();
+  (new GroupController($request))->run();
 } catch (ConfigurationException $e) {
   //mail('xxx@xxx.com', 'Errro', $e->getMessage());
   echo '<h1>Wystąpił błąd w aplikacji</h1>';

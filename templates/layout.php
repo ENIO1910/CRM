@@ -18,6 +18,8 @@
         <ul>
           <li><a href="/">Lista użytkowników</a></li>
           <li><a href="/?action=create">Dodaj użytkownika</a></li>
+          <li><a href="/?action=listGroup">Grupy</a></li>
+          <li><a href="/?action=createGroup">Dodaj grupę</a></li>
         </ul>
       </div>
       <div class="page">

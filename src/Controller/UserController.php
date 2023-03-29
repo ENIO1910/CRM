@@ -87,22 +87,24 @@ class UserController extends AbstractController
     }
 
 
-//    /**
-//     * @return void
-//     * @throws \App\Exception\StorageException
-//     */
-//    public function deleteAction(): void
-//    {
-//
-//        if($this->request->isPost())
-//        {
-//
-//            $id = (int) $this->request->postParam('id');
-//            $this->userModel->delete($id);
-//            $this->redirect('/Notatki/', ['before' => 'deleted']);
-//        }
-//
-//
-//        $this->view->render('delete', ['note' => $this->getUser()]);
-//    }
+    /**
+     * @return void
+     * @throws \App\Exception\StorageException
+     */
+    public function deleteAction(): void
+    {
+
+        if($this->request->isPost())
+        {
+
+            $id = (int) $this->request->postParam('id');
+            $this->userModel->delete($id);
+            $this->redirect('/', ['before' => 'deleted']);
+        }
+
+
+        $this->view->render('delete', ['user' => $this->getUser()]);
+    }
+
+
 }

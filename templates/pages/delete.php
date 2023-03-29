@@ -1,22 +1,23 @@
 <div class="show">
-  <?php $note = $params['note'] ?? null; ?>
-  <?php if ($note) : ?>
+  <?php $user = $params['user'] ?? null; ?>
+  <?php if ($user) : ?>
     <ul>
-      <li>Id: <?php echo $note['id'] ?></li>
-      <li>Tytuł: <?php echo $note['title'] ?></li>
-      <li>
-        <pre><?php echo $note['description'] ?></pre>
-      </li>
-      <li>Zapisano: <?php echo $note['created'] ?></li>
+        <li>Id: <?php echo $user['id'] ?></li>
+        <li>Nick: <?php echo $user['Nazwa'] ?></li>
+        <li>Password: <?php echo $user['password'] ?></li>
+        <li>Name: <?php echo $user['imie'] ?></li>
+        <li>Surname: <?php echo $user['nazwisko'] ?></li>
+        <li>Birth date: <?php echo $user['data_urodzenia'] ?></li>
+        <li>Group: <?php echo $user['lista_grup_uzytkownikow'] ?></li>
     </ul>
     <form method="POST" action="/?action=delete">
-      <input name="id" type="hidden" value="<?php echo $note['id'] ?>" />
+      <input name="id" type="hidden" value="<?php echo $user['id'] ?>" />
       <input type="submit" value="Usuń" />
     </form>
   <?php else : ?>
-    <div>Brak notatki do wyświetlenia</div>
+    <div>Brak danych od wyświetlenia</div>
   <?php endif; ?>
   <a href="/">
-    <button>Powrót do listy notatek</button>
+    <button>Powrót do listy użytkowników</button>
   </a>
 </div>
