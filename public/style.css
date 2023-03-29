@@ -51,6 +51,7 @@ form label {
 }
 
 form input[type=text],
+form input[type=password],
 form input[type=date],
 form input[type=datetime],
 form input[type=number],

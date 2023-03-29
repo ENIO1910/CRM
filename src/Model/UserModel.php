@@ -19,7 +19,7 @@ class UserModel extends AbstractModel
     public function list(): array
     {
         try {
-            $query = "SELECT * FROM Users";
+            $query = "SELECT * FROM users";
             $result = $this->conn->query($query, PDO::FETCH_ASSOC);
             return $result->fetchAll();
         } catch (Throwable $e) {
@@ -35,14 +35,14 @@ class UserModel extends AbstractModel
     public function create(array $data): void
     {
         try {
-            $nazwa = $this->conn->quote($data['nazwa']);
+            $username = $this->conn->quote($data['username']);
             $password = $this->conn->quote($data['password']);
-            $imie = $this->conn->quote($data['imie']);
-            $nazwisko = $this->conn->quote($data['nazwisko']);
-            $data_urodzenia = $this->conn->quote($data['data_urodzenia']);
+            $first_name = $this->conn->quote($data['first_name']);
+            $last_name = $this->conn->quote($data['last_name']);
+            $birthdate = $this->conn->quote($data['birthdate']);
             $query = "
-                INSERT INTO Users (Nazwa, password, imie, nazwisko, data_urodzenia) 
-                VALUES($nazwa, $password, $imie, $nazwisko, $data_urodzenia)";
+                INSERT INTO users (username, password, first_name, last_name, birthdate) 
+                VALUES($username, $password, $first_name, $last_name, $birthdate)";
             $this->conn->exec($query);
         } catch (Throwable $e) {
             throw new StorageException("Nie udało się utworzyć notatki", 400, $e);
@@ -52,7 +52,7 @@ class UserModel extends AbstractModel
     public function get(int $id): array
     {
         try {
-            $query = "SELECT * FROM Users WHERE id = $id";
+            $query = "SELECT * FROM users WHERE id = $id";
             $result = $this->conn->query($query, PDO::FETCH_ASSOC);
             $user = $result->fetch();
         } catch (Throwable $e) {
@@ -67,15 +67,15 @@ class UserModel extends AbstractModel
     public function update(int $id, array $data): void
     {
         try {
-            $nazwa = $this->conn->quote($data['nazwa']);
+            $username = $this->conn->quote($data['username']);
             $password = $this->conn->quote($data['password']);
-            $imie = $this->conn->quote($data['imie']);
-            $nazwisko = $this->conn->quote($data['nazwisko']);
-            $data_urodzenia = $this->conn->quote($data['data_urodzenia']);
+            $first_name = $this->conn->quote($data['first_name']);
+            $last_name = $this->conn->quote($data['last_name']);
+            $birthdate = $this->conn->quote($data['birthdate']);
 
             $query = "
-                UPDATE Users 
-                SET Nazwa = $nazwa, password = $password, imie = $imie, nazwisko = $nazwisko, data_urodzenia = $data_urodzenia 
+                UPDATE users 
+                SET username = $username, password = $password, first_name = $first_name, last_name = $last_name, birthdate = $birthdate 
                 WHERE id = $id
                 ";
 
@@ -94,7 +94,7 @@ class UserModel extends AbstractModel
     public function delete(int $id): void
     {
         try {
-            $query = "DELETE FROM Users WHERE id = $id";
+            $query = "DELETE FROM users WHERE id = $id";
             $this->conn->exec($query);
         } catch (Throwable $e) {
             throw new StorageException("Nie udało się usunąć notatki", 400, $e);

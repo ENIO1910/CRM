@@ -2,9 +2,6 @@
 
 declare(strict_types=1);
 
-
-
-
 namespace App\Controller;
 
 
@@ -37,6 +34,7 @@ abstract class AbstractController
         if (empty(self::$configuration['db'])) {
             throw new ConfigurationException("Configuration error");
         }
+
         $this->userModel = new UserModel(self::$configuration['db']);
         $this->groupModel = new GroupModel(self::$configuration['db']);
 

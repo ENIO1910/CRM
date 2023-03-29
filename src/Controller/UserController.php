@@ -34,8 +34,6 @@ class UserController extends AbstractController
 
     public function showAction(): void
     {
-
-
         $user = $this->getUser();
 
         $this->view->render(
@@ -48,11 +46,11 @@ class UserController extends AbstractController
   {
       if ($this->request->hasPost()) {
           $userData = [
-              'nazwa' => $this->request->postParam('nazwa'),
+              'username' => $this->request->postParam('username'),
               'password' => $this->request->postParam('password'),
-              'imie' => $this->request->postParam('imie'),
-              'nazwisko' => $this->request->postParam('nazwisko'),
-              'data_urodzenia' => $this->request->postParam('date')
+              'first_name' => $this->request->postParam('first_name'),
+              'last_name' => $this->request->postParam('last_name'),
+              'birthdate' => $this->request->postParam('birthdate')
           ];
           $this->userModel->create($userData);
           $this->redirect('/', ['before' => 'created']);
@@ -66,11 +64,11 @@ class UserController extends AbstractController
         if($this->request->isPost()) {
             $userId = (int) $this->request->postParam('id');
             $userData = [
-                'nazwa' => $this->request->postParam('nazwa'),
+                'username' => $this->request->postParam('username'),
                 'password' => $this->request->postParam('password'),
-                'imie' => $this->request->postParam('imie'),
-                'nazwisko' => $this->request->postParam('nazwisko'),
-                'data_urodzenia' => $this->request->postParam('date')
+                'first_name' => $this->request->postParam('first_name'),
+                'last_name' => $this->request->postParam('last_name'),
+                'birthdate' => $this->request->postParam('birthdate')
             ];
 
             $this->userModel->update($userId, $userData);
@@ -82,7 +80,7 @@ class UserController extends AbstractController
 
         $this->view->render(
             'edit',
-            ['note' => $user]
+            ['user' => $user]
         );
     }
 
@@ -106,5 +104,28 @@ class UserController extends AbstractController
         $this->view->render('delete', ['user' => $this->getUser()]);
     }
 
+    public function createGroupAction(): void
+    {
+        if ($this->request->hasPost()) {
+            $groupData = [
+                'name' => $this->request->postParam('name')
+            ];
+            $this->groupModel->create($groupData);
+            $this->redirect('/', ['before' => 'created']);
+        }
+        $this->view->render('createGroup');
+    }
+
+    public function listGroupAction(): void
+    {
+        $groups = $this->groupModel->list();
+
+        $viewParams = [
+            'groups' => $groups,
+            'before' => $this->request->getParam('before')
+        ];
+
+        $this->view->render('listGroup', $viewParams);
+    }
 
 }

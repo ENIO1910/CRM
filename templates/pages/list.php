@@ -55,10 +55,10 @@
                 <?php foreach ($params['users'] ?? [] as $user) : ?>
                     <tr>
                         <td style="text-align:center;"><?php echo $user['id'] ?></td>
-                        <td style="text-align:center;"><?php echo $user['Nazwa'] ?></td>
-                        <td style="text-align:center;"><?php echo $user['imie'] ?></td>
-                        <td style="text-align:center;"><?php echo $user['nazwisko'] ?></td>
-                        <td style="text-align:center;"><?php echo $user['data_urodzenia'] ?></td>
+                        <td style="text-align:center;"><?php echo $user['username'] ?></td>
+                        <td style="text-align:center;"><?php echo $user['first_name'] ?></td>
+                        <td style="text-align:center;"><?php echo $user['last_name'] ?></td>
+                        <td style="text-align:center;"><?php echo $user['birthdate'] ?></td>
                         <td>
                             <a href="/?action=show&id=<?php echo $user['id'] ?>">
                                 <button>Szczegóły</button>

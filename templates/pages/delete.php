@@ -3,12 +3,11 @@
   <?php if ($user) : ?>
     <ul>
         <li>Id: <?php echo $user['id'] ?></li>
-        <li>Nick: <?php echo $user['Nazwa'] ?></li>
+        <li>Nick: <?php echo $user['username'] ?></li>
         <li>Password: <?php echo $user['password'] ?></li>
-        <li>Name: <?php echo $user['imie'] ?></li>
-        <li>Surname: <?php echo $user['nazwisko'] ?></li>
-        <li>Birth date: <?php echo $user['data_urodzenia'] ?></li>
-        <li>Group: <?php echo $user['lista_grup_uzytkownikow'] ?></li>
+        <li>Name: <?php echo $user['first_name'] ?></li>
+        <li>Surname: <?php echo $user['last_name'] ?></li>
+        <li>Birth date: <?php echo $user['birthdate'] ?></li>
     </ul>
     <form method="POST" action="/?action=delete">
       <input name="id" type="hidden" value="<?php echo $user['id'] ?>" />
