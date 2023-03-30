@@ -1,5 +1,5 @@
 <div>
-    <h3>Add user</h3>
+    <h3>Add group</h3>
     <div>
         <form class="note-form" action="/?action=createGroup" method="post">
             <ul>

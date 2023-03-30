@@ -11,12 +11,12 @@
     </ul>
     <form method="POST" action="/?action=delete">
       <input name="id" type="hidden" value="<?php echo $user['id'] ?>" />
-      <input type="submit" value="Usuń" />
+      <input type="submit" value="Delete" />
     </form>
   <?php else : ?>
-    <div>Brak danych od wyświetlenia</div>
+    <div>No data to display</div>
   <?php endif; ?>
   <a href="/">
-    <button>Powrót do listy użytkowników</button>
+    <button>Back to users list</button>
   </a>
 </div>

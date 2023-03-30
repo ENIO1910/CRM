@@ -50,6 +50,51 @@ form label {
   font-weight: normal;
 }
 
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.select {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.select:focus {
+  outline: none;
+  border-bottom: 2px solid #00bfff;
+}
+
+.select option {
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #fff;
+  color: #333;
+}
+
+.select option:checked {
+  background-color: #00bfff;
+  color: #fff;
+}
+
+.fa-angle-down {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #ccc;
+}
+
+
 form input[type=text],
 form input[type=password],
 form input[type=date],
@@ -254,18 +299,8 @@ tr>th:nth-child(1) {
 
 }
 
-tr>td:nth-child(2) {
-  width: 50%;
-  text-align: left;
-}
 
-tr>th:nth-child(2) {
-  width: 50%;
-}
 
-tr>td:nth-child(3) {
-  font-style: italic;
-}
 
 .error {
   /* margin: 0 10px 25px 10px; */

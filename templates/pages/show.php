@@ -9,9 +9,10 @@
       <li>Name: <?php echo $user['first_name'] ?></li>
       <li>Surname: <?php echo $user['last_name'] ?></li>
       <li>Birth date: <?php echo $user['birthdate'] ?></li>
+      <li>Group: <?php echo $user['group_name'] ?> </li>
     </ul>
     <a href="/?action=edit&id=<?php echo $user['id'] ?>">
-      <button>Edytuj</button>
+      <button>Edit</button>
     </a>
   <?php else : ?>
     <div>No note to display</div>

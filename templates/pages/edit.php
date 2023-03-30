@@ -26,6 +26,18 @@
                   <label>Birthdate<span class="required">*</span></label>
                   <input type="date" name="birthdate" class="field-long" value="<?php echo $user['birthdate'] ?>" />
               </li>
+              <?php if (!empty($params['groups'])) : ?>
+                  <?php $groups = $params['groups']; ?>
+                  <li>
+                      <label for="group">Choose a group:</label>
+
+                      <select name="group_id">
+                          <?php foreach($groups as $group) : ?>
+                              <option value="<?php echo $group['id'] ?>"><?php echo $group['name'] ?></option>
+                          <?php endforeach; ?>
+                      </select>
+                  </li>
+              <?php endif; ?>
               <li>
                   <input type="submit" value="Submit"/>
               </li>
@@ -33,8 +45,8 @@
       </form>
     <?php else : ?>
       <div>
-        Brak danych do wyświetlenia
-        <a href="/"><button>Powrót do listy notatek</button></a>
+          No data to display
+        <a href="/"><button>Back to users list</button></a>
       </div>
     <?php endif; ?>
   </div>

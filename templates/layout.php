@@ -1,7 +1,7 @@
-<html lang="pl">
+<html lang="en">
 
 <head>
-  <title>Notatnik</title>
+  <title>CRM</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
   <link href="/public/style.css" rel="stylesheet">
@@ -16,10 +16,10 @@
     <div class="container">
       <div class="menu">
         <ul>
-          <li><a href="/">Lista użytkowników</a></li>
-          <li><a href="/?action=create">Dodaj użytkownika</a></li>
-          <li><a href="/?action=listGroup">Grupy</a></li>
-          <li><a href="/?action=createGroup">Dodaj grupę</a></li>
+          <li><a href="/">Users</a></li>
+          <li><a href="/?action=create">Add user</a></li>
+          <li><a href="/?action=listGroup">Group</a></li>
+          <li><a href="/?action=createGroup">Add group</a></li>
         </ul>
       </div>
       <div class="page">

@@ -23,9 +23,23 @@
                     <label>Birthdate<span class="required">*</span></label>
                     <input type="date" name="birthdate" class="field-long"/>
                 </li>
+                <?php if (!empty($params)) : ?>
+                <?php $groups = $params; ?>
+                <li>
+                    <label for="group">Choose a group:</label>
+
+                    <select name="group_id">
+                        <?php foreach($groups as $group) : ?>
+
+                            <option value="<?php echo $group['id'] ?>"><?php echo $group['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </li>
+                <?php endif; ?>
                 <li>
                     <input type="submit" value="Submit"/>
                 </li>
+
             </ul>
         </form>
     </div>

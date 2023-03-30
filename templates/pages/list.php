@@ -22,13 +22,13 @@
             if (!empty($params['before'])) {
                 switch ($params['before']) {
                     case 'created':
-                        echo 'Notatka zostało utworzona';
+                        echo 'User created';
                         break;
                     case 'deleted':
-                        echo 'Notatka została usunięta';
+                        echo 'User deleted';
                         break;
                     case 'edited':
-                        echo 'Notatka została zaktualizowana';
+                        echo 'User edit';
                         break;
                 }
             }
@@ -40,11 +40,12 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nazwa</th>
-                    <th>Imie</th>
-                    <th>Nazwisko</th>
-                    <th>Data urodzenia</th>
-                    <th>Akcje</th>
+                    <th>Username</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Birthdate</th>
+                    <th>User Group</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
             </table>
@@ -59,12 +60,13 @@
                         <td style="text-align:center;"><?php echo $user['first_name'] ?></td>
                         <td style="text-align:center;"><?php echo $user['last_name'] ?></td>
                         <td style="text-align:center;"><?php echo $user['birthdate'] ?></td>
+                        <td style="text-align:center;"><?php echo $user['group_name'] ?></td>
                         <td>
                             <a href="/?action=show&id=<?php echo $user['id'] ?>">
-                                <button>Szczegóły</button>
+                                <button>Details</button>
                             </a>
                             <a href="/?action=delete&id=<?php echo $user['id'] ?>">
-                                <button>Usuń</button>
+                                <button>Delete</button>
                             </a>
                         </td>
                     </tr>
